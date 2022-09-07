@@ -1,6 +1,6 @@
 ---
 export interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -8,38 +8,107 @@ const { title } = Astro.props;
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+    <style is:global>
+      /* ------------------------------ ClashDisplay ------------------------------ */
+      @font-face {
+        font-family: "ClashDisplay";
+        font-style: normal;
+        font-weight: 200;
+        font-display: swap;
+        src: url("/fonts/clash-display/ClashDisplay-Extralight.woff")
+          format("woff");
+      }
+      @font-face {
+        font-family: "ClashDisplay";
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src: url("/fonts/clash-display/ClashDisplay-Light.woff") format("woff");
+      }
+      @font-face {
+        font-family: "ClashDisplay";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("/fonts/clash-display/ClashDisplay-Regular.woff")
+          format("woff");
+      }
+      @font-face {
+        font-family: "ClashDisplay";
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url("/fonts/clash-display/ClashDisplay-Medium.woff") format("woff");
+      }
+      @font-face {
+        font-family: "ClashDisplay";
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url("/fonts/clash-display/ClashDisplay-Semibold.woff")
+          format("woff");
+      }
+      @font-face {
+        font-family: "ClashDisplay";
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url("/fonts/clash-display/ClashDisplay-Bold.woff") format("woff");
+      }
+
+      /* --------------------------------- PP MORI -------------------------------- */
+      @font-face {
+        font-family: "PPMori";
+        font-style: normal;
+        font-weight: 200;
+        font-display: swap;
+        src: url("/fonts/pp-mori/PPMori-Extralight.otf") format("opentype");
+      }
+      @font-face {
+        font-family: "PPMori";
+        font-style: italic;
+        font-weight: 200;
+        font-display: swap;
+        src: url("/fonts/pp-mori/PPMori-ExtralightItalic.otf")
+          format("opentype");
+      }
+      @font-face {
+        font-family: "PPMori";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("/fonts/pp-mori/PPMori-Regular.otf") format("opentype");
+      }
+      @font-face {
+        font-family: "PPMori";
+        font-style: italic;
+        font-weight: 400;
+        font-display: swap;
+        src: url("/fonts/pp-mori/PPMori-RegularItalic.otf") format("opentype");
+      }
+      @font-face {
+        font-family: "PPMori";
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url("/fonts/pp-mori/PPMori-SemiBold.otf") format("opentype");
+      }
+      @font-face {
+        font-family: "PPMori";
+        font-style: italic;
+        font-weight: 600;
+        font-display: swap;
+        src: url("/fonts/pp-mori/PPMori-SemiBoldItalic.otf") format("opentype");
+      }
+    </style>
+  </body>
 </html>
-<style>
-	:root {
-		--font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
-		--font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
-		--font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
-
-		--color-text: hsl(12, 5%, 4%);
-		--color-bg: hsl(10, 21%, 95%);
-		--color-border: hsl(17, 24%, 90%);
-	}
-
-	html {
-		font-family: system-ui, sans-serif;
-		font-size: var(--font-size-base);
-		color: var(--color-text);
-		background-color: var(--color-bg);
-	}
-
-	body {
-		margin: 0;
-	}
-
-
-</style>
