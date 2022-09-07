@@ -10,9 +10,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^1.1.6"
+    "astro": "^1.1.6",
+    "canvas-confetti": "^1.5.1"
   },
   "devDependencies": {
-    "@astrojs/tailwind": "^1.0.0"
+    "@astrojs/tailwind": "^1.0.0",
+    "@types/canvas-confetti": "^1.4.3"
   }
 }

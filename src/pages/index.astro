@@ -7,10 +7,64 @@ import Layout from "../layouts/Layout.astro";
     <main
       class="flex items-center flex-1 container mx-auto justify-center flex-col"
     >
-      <h1 class="text-7xl font-['ClashDisplay'] font-extralight">
-        Daniel Sepúlveda
-      </h1>
-      <button>Confetti</button>
+      <div class="flex items-center flex-col space-y-4">
+        <h1 class="text-7xl font-['ClashDisplay'] font-extralight text-white">
+          Daniel Sepúlveda
+        </h1>
+        <p class="text-white font-['PPMori'] text-lg font-bold">
+          Software Developer
+        </p>
+        <button
+          id="confetti"
+          type="button"
+          class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-base px-5 py-3 text-center mr-2 mb-2"
+          >Confetti</button
+        >
+      </div>
     </main>
   </div>
 </Layout>
+
+<script>
+  import confetti from "canvas-confetti";
+
+  const btnEl = document.querySelector("#confetti");
+
+  const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+  const duration = 7 * 1000;
+
+  function randomInRange(min: number, max: number) {
+    return Math.random() * (max - min) + min;
+  }
+
+  let interval: number | null = null;
+
+  if (btnEl) {
+    btnEl.addEventListener("click", () => {
+      const animationEnd = Date.now() + duration;
+
+      interval = setInterval(() => {
+        const timeLeft = animationEnd - Date.now();
+
+        if (timeLeft <= 0 && interval) {
+          return clearInterval(interval);
+        }
+
+        const particleCount = 50 * (timeLeft / duration);
+
+        confetti(
+          Object.assign({}, defaults, {
+            particleCount,
+            origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+          })
+        );
+        confetti(
+          Object.assign({}, defaults, {
+            particleCount,
+            origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+          })
+        );
+      }, 750);
+    });
+  }
+</script>
